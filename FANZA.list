@@ -1,0 +1,34 @@
+# ===== DMM / FANZA Core Domains =====
+DOMAIN-SUFFIX,dmm.co.jp
+DOMAIN-SUFFIX,dmm.com
+DOMAIN-SUFFIX,fanza.co.jp
+DOMAIN-SUFFIX,dmm-cdn.com
+
+# ===== API / Backend =====
+DOMAIN-SUFFIX,osapi.dmm.com
+DOMAIN-SUFFIX,api.dmm.com
+DOMAIN-SUFFIX,dmmapis.com
+DOMAIN-SUFFIX,dmmapis2.dmm.com
+DOMAIN-SUFFIX,my.dmm.co.jp
+DOMAIN-SUFFIX,accounts.dmm.co.jp
+
+# ===== Media / Video / Image =====
+DOMAIN-SUFFIX,p.dmm.co.jp
+DOMAIN-SUFFIX,video.dmm.co.jp
+DOMAIN-SUFFIX,pics.dmm.co.jp
+DOMAIN-SUFFIX,dlsoft.dmm.co.jp
+DOMAIN-SUFFIX,pr.dmm.co.jp
+
+# ===== Support / Web =====
+DOMAIN-SUFFIX,help.dmm.co.jp
+DOMAIN-SUFFIX,support.dmm.co.jp
+DOMAIN-SUFFIX,news.dmm.co.jp
+
+# ===== Tracking / Stats =====
+DOMAIN-SUFFIX,stat.i3.dmm.com
+DOMAIN-SUFFIX,trac.i3.dmm.co.jp
+DOMAIN-SUFFIX,affiliate.dmm.co.jp
+
+# ===== DLsite (常与 DMM 同类流媒体/成人平台联动) =====
+DOMAIN-SUFFIX,dlsite.com
+DOMAIN-SUFFIX,dlsite.jp
