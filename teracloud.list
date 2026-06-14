@@ -1,0 +1,33 @@
+# ===== Teracloud / Zeze Core =====
+DOMAIN-SUFFIX,teracloud.jp
+DOMAIN,zeze.teracloud.jp
+
+# ===== API / Auth =====
+DOMAIN-SUFFIX,api.teracloud.jp
+DOMAIN-SUFFIX,auth.teracloud.jp
+DOMAIN-SUFFIX,account.teracloud.jp
+DOMAIN-SUFFIX,login.teracloud.jp
+DOMAIN-SUFFIX,my.teracloud.jp
+
+# ===== File / Download Core =====
+DOMAIN-SUFFIX,dl.teracloud.jp
+DOMAIN-SUFFIX,download.teracloud.jp
+DOMAIN-SUFFIX,file.teracloud.jp
+DOMAIN-SUFFIX,files.teracloud.jp
+DOMAIN-SUFFIX,storage.teracloud.jp
+DOMAIN-SUFFIX,cdn.teracloud.jp
+
+# ===== Media / Preview =====
+DOMAIN-SUFFIX,img.teracloud.jp
+DOMAIN-SUFFIX,thumb.teracloud.jp
+DOMAIN-SUFFIX,preview.teracloud.jp
+DOMAIN-SUFFIX,stream.teracloud.jp
+
+# ===== Web / Support =====
+DOMAIN-SUFFIX,help.teracloud.jp
+DOMAIN-SUFFIX,support.teracloud.jp
+DOMAIN-SUFFIX,news.teracloud.jp
+
+# ===== Stats / Tracking =====
+DOMAIN-SUFFIX,stat.teracloud.jp
+DOMAIN-SUFFIX,track.teracloud.jp
