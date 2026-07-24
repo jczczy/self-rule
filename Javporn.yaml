@@ -292,6 +292,6 @@ payload:
   
   # 正则匹配数字镜像站
   - DOMAIN-REGEX,^javbus\d+\.com$
-  - DOMAIN-REGEX,^javdd\d+\.com$
+  - DOMAIN-REGEX,^javdb\d+\.com$
   - DOMAIN-REGEX,^javcc\d+\.com$
 #  - DOMAIN-REGEX,^javcc\d+\.com$
