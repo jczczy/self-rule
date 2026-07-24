@@ -1028,8 +1028,9 @@ rule-providers:
     format: text
     type: http
   Javporn:
-    url: https://raw.githubusercontent.com/jczczy/self-rule/main/Javporn.yaml
-    path: ./ruleset/Cryptocurrency.list
+    url: https://raw.githubusercontent.com/jczczy/self-rule/main/Javporn.list
+    #https://raw.githubusercontent.com/jczczy/self-rule/main/Javporn.yaml
+    path: ./ruleset/Javporn.list
     behavior: classical
     interval: 86400
     format: text
