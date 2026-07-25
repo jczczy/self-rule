@@ -16,6 +16,23 @@ DOMAIN-SUFFIX,x18r.co
 DOMAIN-SUFFIX,x18r.com
 DOMAIN-SUFFIX,z18r.co
 DOMAIN-SUFFIX,z18r.com
+DOMAIN-SUFFIX,missav.ai
+DOMAIN-SUFFIX,missav.com
+DOMAIN-SUFFIX,missav.live
+DOMAIN-SUFFIX,missav.uno
+DOMAIN-SUFFIX,missav.vip
+DOMAIN-SUFFIX,missav.ws
+DOMAIN-SUFFIX,missav123.com
+DOMAIN-SUFFIX,missav.app
+DOMAIN-SUFFIX,missav.net
+DOMAIN-SUFFIX,missav.org
+DOMAIN-SUFFIX,missav.site
+DOMAIN-SUFFIX,missav.co
+DOMAIN-SUFFIX,missav.tech
+DOMAIN-SUFFIX,missav.tv
+DOMAIN-SUFFIX,missav.online
+DOMAIN-SUFFIX,missav1.com
+DOMAIN-SUFFIX,missav01.com
 #  DOMAIN-SUFFIX,
 #  DOMAIN-SUFFIX,
 #  DOMAIN-SUFFIX,
@@ -294,4 +311,5 @@ DOMAIN-SUFFIX,juzige.xyz
 URL-REGEX,javbus\d+\.com$
 URL-REGEX,javdb\d+\.com$
 URL-REGEX,javcc\d+\.com$
+URL-REGEX,missav\d*\.(com|ai|live|uno|vip|ws|app|net|org|site|co|tech|tv|online|xyz)$
 #  URL-REGEX,^javcc\d+\.com$
