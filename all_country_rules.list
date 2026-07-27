@@ -1,0 +1,53 @@
+# === 香港策略组 ===
+DOMAIN-SUFFIX,hk,香港节点
+DOMAIN-SUFFIX,mo,香港节点
+
+# === 台湾策略组 ===
+DOMAIN-SUFFIX,tw,台湾节点
+
+# === 日本策略组 ===
+DOMAIN-SUFFIX,jp,日本节点
+
+# === 韩国策略组 ===
+DOMAIN-SUFFIX,kr,韩国节点
+
+# === 东南亚策略组 ===
+DOMAIN-SUFFIX,sg,新加坡节点
+DOMAIN-SUFFIX,my,新加坡节点
+DOMAIN-SUFFIX,th,新加坡节点
+DOMAIN-SUFFIX,vn,新加坡节点
+DOMAIN-SUFFIX,id,新加坡节点
+DOMAIN-SUFFIX,ph,新加坡节点
+
+# === 美国策略组 ===
+DOMAIN-SUFFIX,us,美国节点
+
+# === 加拿大策略组 ===
+DOMAIN-SUFFIX,ca,加拿大节点
+
+# === 美洲其他策略组（归类至美国） ===
+DOMAIN-SUFFIX,mx,美国节点
+DOMAIN-SUFFIX,br,美国节点
+DOMAIN-SUFFIX,ar,美国节点
+
+# === 英国策略组 ===
+DOMAIN-SUFFIX,uk,英国节点
+
+# === 德国策略组 ===
+DOMAIN-SUFFIX,de,德国节点
+
+# === 法国策略组 ===
+DOMAIN-SUFFIX,fr,法国节点
+
+# === 俄罗斯策略组 ===
+DOMAIN-SUFFIX,ru,俄罗斯节点
+
+# === 欧洲其他策略组（归类至德国） ===
+DOMAIN-SUFFIX,nl,德国节点
+DOMAIN-SUFFIX,eu,德国节点
+
+# === 澳大利亚策略组 ===
+DOMAIN-SUFFIX,au,澳大利亚节点
+
+# === 新西兰策略组 ===
+DOMAIN-SUFFIX,nz,新西兰节点
