@@ -154,6 +154,22 @@ proxy-groups:
       - 韩国节点
       - 手动切换
       - DIRECT
+  - name: GitHub
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/github.png
+    type: select
+    proxies:
+      - 美国节点
+      - 狮城节点
+      - 香港节点
+      - 台湾节点
+      - 日本节点
+      - 韩国节点
+      - ⚖️ 轮询
+      - ⚖️ 散列
+      - 节点选择
+      - 自动选择
+      - 手动切换
+      - DIRECT
   - name: TikTok
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok.png
     type: select
@@ -689,6 +705,50 @@ proxy-groups:
     include-all: true
     filter: (?i)(AU|AUS|Australia|AUSTRALIA|澳大利亚|澳洲|澳大利亞|悉尼|Sydney|墨尔本|Melbourne|布里斯班|Brisbane|珀斯|Perth)
 
+  - name: 新西兰节点
+    icon: https://flagcdn.com/w80/nz.png
+    include-all: true
+    filter: (?i)(NZ|NZL|NewZealand|New_Zealand|New%20Zealand|新西兰|紐西蘭|奥克兰|Auckland|惠灵顿|Wellington|基督城|Christchurch)
+    type: url-test
+    url: https://www.google.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 新西兰(延迟优选)
+    icon: https://flagcdn.com/w80/nz.png
+    type: url-test
+    url: https://www.google.com/generate_204
+    interval: 300
+    tolerance: 50
+    include-all: true
+    filter: (?i)(NZ|NZL|NewZealand|New_Zealand|New%20Zealand|新西兰|紐西蘭|奥克兰|Auckland|惠灵顿|Wellington|基督城|Christchurch)
+
+  - name: 新西兰(故障转移)
+    icon: https://flagcdn.com/w80/nz.png
+    type: fallback
+    url: https://www.google.com/generate_204
+    interval: 300
+    include-all: true
+    filter: (?i)(NZ|NZL|NewZealand|New_Zealand|New%20Zealand|新西兰|紐西蘭|奥克兰|Auckland|惠灵顿|Wellington|基督城|Christchurch)
+
+  - name: 新西兰(负载轮询)
+    icon: https://flagcdn.com/w80/nz.png
+    type: load-balance
+    url: https://www.google.com/generate_204
+    interval: 300
+    strategy: round-robin
+    include-all: true
+    filter: (?i)(NZ|NZL|NewZealand|New_Zealand|New%20Zealand|新西兰|紐西蘭|奥克兰|Auckland|惠灵顿|Wellington|基督城|Christchurch)
+
+  - name: 新西兰(负载散列)
+    icon: https://flagcdn.com/w80/nz.png
+    type: load-balance
+    url: https://www.google.com/generate_204
+    interval: 300
+    strategy: consistent-hashing
+    include-all: true
+    filter: (?i)(NZ|NZL|NewZealand|New_Zealand|New%20Zealand|新西兰|紐西蘭|奥克兰|Auckland|惠灵顿|Wellington|基督城|Christchurch)
+
   - name: 印度节点
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/India.png
     include-all: true
@@ -789,6 +849,14 @@ proxy-groups:
 
 
 rule-providers:
+  GitHub:
+    url: https://raw.githubusercontent.com/jczczy/self-rule/main/GitHub.list
+    #https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Github.list
+    path: ./ruleset/GitHub.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
   TikTok:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/TikTok/TikTok.list
     path: ./ruleset/TikTok.list
@@ -1035,7 +1103,13 @@ rule-providers:
     interval: 86400
     format: text
     type: http
-
+  #AllCountries:
+    #url: https://raw.githubusercontent.com/jczczy/self-rule/main/all_country_rules.list
+    #path: ./ruleset/all_country_rules.list
+    #behavior: classical
+    #interval: 86400
+    #format: text
+    #type: http
 
 rules:
   - DOMAIN-KEYWORD,corel,REJECT
@@ -2313,6 +2387,62 @@ rules:
   - "RULE-SET,Bahamut,巴哈姆特"
   - "RULE-SET,BilibiliHMT,哔哩哔哩"
   - "RULE-SET,Bilibili,哔哩哔哩"
+# === 香港策略组 ===
+  - DOMAIN-SUFFIX,hk,香港节点
+  - DOMAIN-SUFFIX,mo,香港节点
+
+  # === 台湾策略组 ===
+  - DOMAIN-SUFFIX,tw,台湾节点
+
+  # === 日本策略组 ===
+  - DOMAIN-SUFFIX,jp,日本节点
+
+  # === 韩国策略组 ===
+  - DOMAIN-SUFFIX,kr,韩国节点
+
+  # === 东南亚策略组 ===
+  - DOMAIN-SUFFIX,sg,狮城节点
+  - DOMAIN-SUFFIX,my,狮城节点
+  - DOMAIN-SUFFIX,th,狮城节点
+  - DOMAIN-SUFFIX,vn,狮城节点
+  - DOMAIN-SUFFIX,id,狮城节点
+  - DOMAIN-SUFFIX,ph,狮城节点
+
+  # === 美国策略组 ===
+  - DOMAIN-SUFFIX,us,美国节点
+
+  # === 加拿大策略组 ===
+  - DOMAIN-SUFFIX,ca,加拿大节点
+
+  # === 美洲其他策略组（归类至美国） ===
+  - DOMAIN-SUFFIX,mx,美国节点
+  - DOMAIN-SUFFIX,br,美国节点
+  - DOMAIN-SUFFIX,ar,美国节点
+
+  # === 英国策略组 ===
+  - DOMAIN-SUFFIX,uk,英国节点
+
+  # === 德国策略组 ===
+  - DOMAIN-SUFFIX,de,德国节点
+
+  # === 法国策略组 ===
+  - DOMAIN-SUFFIX,fr,法国节点
+
+  # === 俄罗斯策略组 ===
+  - DOMAIN-SUFFIX,ru,俄罗斯节点
+
+  # === 欧洲其他策略组（归类至德国） ===
+  - DOMAIN-SUFFIX,nl,德国节点
+  - DOMAIN-SUFFIX,eu,德国节点
+
+  # === 澳大利亚策略组 ===
+  - DOMAIN-SUFFIX,au,澳大利亚节点
+
+  # === 新西兰策略组 ===
+  - DOMAIN-SUFFIX,nz,新西兰节点
+
+  #- "RULE-SET,AllCountries,节点选择"
+
   - "RULE-SET,ChinaMedia,国内媒体"
   - "RULE-SET,ProxyMedia,国外媒体"
   - "RULE-SET,ProxyGFWlist,节点选择"
