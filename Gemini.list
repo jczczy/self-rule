@@ -1,19 +1,46 @@
-DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
-DOMAIN-SUFFIX,geller-pa.googleapis.com
-DOMAIN-SUFFIX,generativelanguage.googleapis.com
-DOMAIN,ai.google.dev
-DOMAIN,bard.google.com
-DOMAIN,gemini.google.com
+# NAME: Gemini
+# AUTHOR: Custom
+# REPO: Custom Gemini Rule
+# UPDATED: 2026-07-30
+# DOMAIN: 3
+# DOMAIN-KEYWORD: 3
+# DOMAIN-SUFFIX: 10
+# TOTAL: 16
+
+# --- Gemini 主体及前端接口 ---
+
+# Gemini Web 主站
+DOMAIN-SUFFIX,gemini.google.com
+
+# Gemini 静态资源
 DOMAIN-SUFFIX,gemini.gstatic.com
-DOMAIN,alkalimakersuite-pa.clients6.google.com
+
+# Google AI Studio
+DOMAIN,ai.google.dev
 DOMAIN,makersuite.google.com
-DOMAIN-SUFFIX,bard.google.com
+DOMAIN,alkalimakersuite-pa.clients6.google.com
+
+# Gemini API / Generative Language API
+DOMAIN-SUFFIX,generativelanguage.googleapis.com
+DOMAIN-SUFFIX,generativeai.google
+
+# Gemini 后端服务
+DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
+
+# Google AI 相关服务
 DOMAIN-SUFFIX,deepmind.com
 DOMAIN-SUFFIX,deepmind.google
-DOMAIN-SUFFIX,gemini.google.com
-DOMAIN-SUFFIX,generativeai.google
-DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
+
+# Google API 接口（登录授权、OAuth）
 DOMAIN-SUFFIX,apis.google.com
+
+# --- Gemini 辅助服务 ---
+
+# Google Colab AI 功能
 DOMAIN-KEYWORD,colab
+
+# Google Developer Profile 相关
 DOMAIN-KEYWORD,developerprofiles
+
+# Generative Language 相关请求
 DOMAIN-KEYWORD,generativelanguage
