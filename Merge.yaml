@@ -955,8 +955,9 @@ rule-providers:
     format: text
     type: http
   OpenAi:
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/OpenAi.list
-    path: ./ruleset/OpenAi.list
+    url: https://raw.githubusercontent.com/jczczy/self-rule/main/AI.list
+    #https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/OpenAi.list
+    path: ./ruleset/Ai.list
     behavior: classical
     interval: 86400
     format: text
