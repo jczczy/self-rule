@@ -23,6 +23,7 @@ DOMAIN,alkalimakersuite-pa.clients6.google.com
 # Gemini API / Generative Language API
 DOMAIN-SUFFIX,generativelanguage.googleapis.com
 DOMAIN-SUFFIX,generativeai.google
+DOMAIN-SUFFIX,robinfrontend-pa.googleapis.com
 
 # Gemini 后端服务
 DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
