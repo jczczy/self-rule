@@ -1148,7 +1148,7 @@ rules:
 #  - DOMAIN-SUFFIX,javcc.com,Javporn
 #  - DOMAIN-REGEX,javbus\d+\.com$,Javporn
 #  - DOMAIN-REGEX,javdb\d+\.com$,Javporn
-
+  - DOMAIN-SUFFIX,falcosafe.top,节点选择
   - DOMAIN-KEYWORD,xingcloud,手动切换
   - DOMAIN-KEYWORD,xingclouds,手动切换
   - DOMAIN-KEYWORD,hktixcloud,手动切换
