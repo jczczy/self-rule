@@ -1,0 +1,88 @@
+#Claude优化ChatGPT后的版本
+dns:
+  enable: true
+  listen: '127.0.0.1:1053'
+
+  # Fake-IP
+  enhanced-mode: 'fake-ip'
+  fake-ip-range: '198.18.0.1/16'
+  fake-ip-range6: '2001:2::0/64'
+  fake-ip-filter-mode: 'blacklist'
+
+  # DNS 行为
+  prefer-h3: false
+  respect-rules: true
+  use-hosts: false
+  use-system-hosts: true
+  ipv6: true
+
+  # Fake-IP 例外
+  fake-ip-filter:
+    - '*'
+    - '+.lan'
+    - '+.local'
+    - '*.arpa'
+    - 'time.*.com'
+    - 'ntp.*.com'
+    - '+.market.xiaomi.com'
+    - 'localhost.ptlogin2.qq.com'
+    - '+.msftncsi.com'
+    - '+.msftconnecttest.com'
+
+  # Bootstrap DNS
+  # 仅用于启动/解析 DoH DNS 服务器，不作为普通域名 DNS
+  default-nameserver:
+    - 'https://223.5.5.5/dns-query'
+    - 'https://120.53.53.53/dns-query'
+
+  # 默认 DNS：海外域名
+  nameserver:
+    - 'https://1.1.1.1/dns-query'
+    - 'https://8.8.8.8/dns-query'
+
+  # 国内域名 DNS
+  nameserver-policy:
+    geosite:cn:
+      - 'https://223.5.5.5/dns-query'
+      - 'https://120.53.53.53/dns-query'
+
+  # DIRECT DNS 不跟随 nameserver-policy
+  direct-nameserver-follow-policy: false
+
+  # 备用 DNS：主 DNS 结果异常/疑似污染时使用
+  fallback:
+    - 'https://dns.quad9.net/dns-query'
+    - 'https://cloudflare-dns.com/dns-query'
+
+  # 仅在主 DNS 结果需要 fallback 时再查询备用 DNS
+  fallback-lazy-query: true
+
+  # Fallback 判断条件
+  fallback-filter:
+    geoip: true
+    geoip-code: 'CN'
+
+    # 疑似污染/异常的 IP
+    ipcidr:
+      - '240.0.0.0/4'
+      - '0.0.0.0/32'
+      - '127.0.0.1/32'
+      - '100.64.0.0/10'
+
+    # 重点海外域名
+    domain:
+      - '+.google.com'
+      - '+.facebook.com'
+      - '+.youtube.com'
+
+  # 代理节点域名 DNS
+  proxy-server-nameserver:
+    - 'https://223.5.5.5/dns-query'
+    - 'https://120.53.53.53/dns-query'
+
+  # DIRECT DNS
+  direct-nameserver:
+    - 'https://223.5.5.5/dns-query'
+    - 'https://120.53.53.53/dns-query'
+
+hosts: {}
