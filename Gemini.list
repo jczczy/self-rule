@@ -1,47 +1,70 @@
-# NAME: Gemini
-# AUTHOR: Custom
-# REPO: Custom Gemini Rule
-# UPDATED: 2026-07-30
+# NAME: Google AI & Gemini
 # DOMAIN: 3
-# DOMAIN-KEYWORD: 3
-# DOMAIN-SUFFIX: 10
-# TOTAL: 16
+# DOMAIN-KEYWORD: 1
+# DOMAIN-SUFFIX: 30
+# TOTAL: 34
+# UPDATED: 2026-10-05 23:28:20
 
 # --- Gemini 主体及前端接口 ---
 
-# Gemini Web 主站
+# Gemini Web 主站与静态资源
+DOMAIN-SUFFIX,gemini.google
 DOMAIN-SUFFIX,gemini.google.com
-
-# Gemini 静态资源
 DOMAIN-SUFFIX,gemini.gstatic.com
+DOMAIN-SUFFIX,bard.google.com
 
-# Google AI Studio
+# Google AI Studio 与开发者平台
+DOMAIN-SUFFIX,ai.studio
+DOMAIN-SUFFIX,aistudio.google.com
+DOMAIN-SUFFIX,generativeai.google
+DOMAIN-SUFFIX,generativelanguage.googleapis.com
+DOMAIN-SUFFIX,makersuite.google.com
 DOMAIN,ai.google.dev
-DOMAIN,makersuite.google.com
+DOMAIN,alkalicore-pa.clients6.google.com
 DOMAIN,alkalimakersuite-pa.clients6.google.com
 
-# Gemini API / Generative Language API
-DOMAIN-SUFFIX,generativelanguage.googleapis.com
-DOMAIN-SUFFIX,generativeai.google
+# --- Gemini 后端与 API 节点 ---
+
+# AI 辅助编码与 API 专属节点
+DOMAIN-SUFFIX,aicode.googleapis.com
+DOMAIN-SUFFIX,aida.googleapis.com
+
+# 后端数据与 Proactive 服务
+DOMAIN-SUFFIX,aisandbox-pa.googleapis.com
+DOMAIN-SUFFIX,geller-pa.googleapis.com
+DOMAIN-SUFFIX,labstailwind.pa.googleapis.com
+DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
 DOMAIN-SUFFIX,robinfrontend-pa.googleapis.com
 
-# Gemini 后端服务
-DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
+# Google 账号授权与 OAuth 依赖
+DOMAIN-SUFFIX,apis.google.com
 
-# Google AI 相关服务
+# --- Google AI 衍生产品与实验室 ---
+
+# NotebookLM 笔记服务
+DOMAIN-SUFFIX,notebook.google
+DOMAIN-SUFFIX,notebook.google.com
+DOMAIN-SUFFIX,notebooklm.google
+DOMAIN-SUFFIX,notebooklm.google.com
+
+# DeepMind 与前沿研究
 DOMAIN-SUFFIX,deepmind.com
 DOMAIN-SUFFIX,deepmind.google
 
-# Google API 接口（登录授权、OAuth）
-DOMAIN-SUFFIX,apis.google.com
+# Search Labs 及其他实验项目 (Antigravity, Jules, Opal, Flow 等)
+DOMAIN-SUFFIX,antigravity-unleash.goog
+DOMAIN-SUFFIX,antigravity.google
+DOMAIN-SUFFIX,flow.google
+DOMAIN-SUFFIX,flow.google.com
+DOMAIN-SUFFIX,jules.google
+DOMAIN-SUFFIX,jules.google.com
+DOMAIN-SUFFIX,labs.google
+DOMAIN-SUFFIX,labs.google.com
+DOMAIN-SUFFIX,opal.google
+DOMAIN-SUFFIX,opal.google.com
+DOMAIN-SUFFIX,stitch.withgoogle.com
 
-# --- Gemini 辅助服务 ---
+# --- Google AI 辅助服务关键词 ---
 
-# Google Colab AI 功能
+# Google Colab 联动
 DOMAIN-KEYWORD,colab
-
-# Google Developer Profile 相关
-DOMAIN-KEYWORD,developerprofiles
-
-# Generative Language 相关请求
-DOMAIN-KEYWORD,generativelanguage
