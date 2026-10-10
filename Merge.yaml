@@ -85,6 +85,12 @@ proxy-groups:
       - ⚖️ 轮询
       - ⚖️ 散列
       - 节点选择
+      - 香港(负载轮询)
+      - 日本(负载轮询)
+      - 狮城(负载轮询)
+      - 台湾(负载轮询)
+      - 韩国(负载轮询)
+      - 美国(负载轮询)
       - 自动选择
       - 狮城节点
       - 香港节点
@@ -126,6 +132,12 @@ proxy-groups:
       - 韩国节点
       - 专线节点
       - 手动切换
+      - 香港(负载轮询)
+      - 日本(负载轮询)
+      - 狮城(负载轮询)
+      - 台湾(负载轮询)
+      - 韩国(负载轮询)
+      - 美国(负载轮询)
       - DIRECT
   - name: 奈飞视频
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png
@@ -156,6 +168,12 @@ proxy-groups:
       - 美国节点
       - 韩国节点
       - 手动切换
+      - 香港(负载轮询)
+      - 日本(负载轮询)
+      - 狮城(负载轮询)
+      - 台湾(负载轮询)
+      - 韩国(负载轮询)
+      - 美国(负载轮询)
       - DIRECT
   - name: GitHub
     icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/github.png
@@ -207,6 +225,12 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/jczczy/self-rule/main/javbus.png
     type: select
     proxies:
+      - 香港(负载轮询)
+      - 日本(负载轮询)
+      - 狮城(负载轮询)
+      - 台湾(负载轮询)
+      - 韩国(负载轮询)
+      - 美国(负载轮询)
       - 狮城节点
       - 日本节点
       - 台湾节点
@@ -377,6 +401,11 @@ proxy-groups:
       - 日本(延迟优选)
       - 日本(故障转移)
       - 日本节点
+      - 香港(负载轮询)
+      - 狮城(负载轮询)
+      - 台湾(负载轮询)
+      - 韩国(负载轮询)
+      - 美国(负载轮询)
       - 节点选择
       - 自动选择
       - DIRECT
@@ -405,8 +434,14 @@ proxy-groups:
     type: select
     proxies:
       - 节点选择
+      - 手动切换
       - 自动选择
-      - DIRECT
+      - 香港(负载轮询)
+      - 日本(负载轮询)
+      - 狮城(负载轮询)
+      - 台湾(负载轮询)
+      - 韩国(负载轮询)
+      - 美国(负载轮询)
       - 香港节点
       - 台湾节点
       - 狮城节点
@@ -414,7 +449,7 @@ proxy-groups:
       - 日本节点
       - 美国节点
       - 韩国节点
-      - 手动切换
+      - DIRECT
   - name: 香港节点
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
     include-all: true
@@ -1136,7 +1171,10 @@ rules:
   - DOMAIN-SUFFIX,infini-cloud.net,teracloud
   - DOMAIN,kurio.infini-cloud.net,teracloud
   - DOMAIN-SUFFIX,dmm.co.jp,FANZA
-
+  
+#Chrome浏览器更新域名
+  - DOMAIN-SUFFIX,dl.google.com,电报消息
+  - DOMAIN-SUFFIX,edgedl.me.gvt1.com,电报消息
 #  - DOMAIN-SUFFIX,jdbstatic.com,Javporn
 #  - DOMAIN-SUFFIX,javdb.com,Javporn
 #  - DOMAIN-SUFFIX,javbus.com,Javporn
