@@ -19,11 +19,10 @@ sniffer:
   skip-domain:
     - +.push.apple.com
 
-# 2. TUN 虚拟网卡核心配置（部分栈或参数可由客户端接管，这里保留完整结构）
+# 2. TUN 虚拟网卡核心配置（已移除被接管的 stack）
 tun:
   enable: true
   device: Mihomo
-  stack: mixed                  # 【对应警告中的 tun.stack】
   auto-route: true
   auto-redirect: false
   auto-detect-interface: true
@@ -63,25 +62,27 @@ geox-url:
   asn: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb
 
 # ==========================================
-# 以下为截图警告中被应用设置接管、已注释并移到底部的 12 个字段：
+# 以下为被应用设置接管、已注释并移到底部的字段：
 # ==========================================
 # mixed-port: 7890                        # 1. mixed-port
 # socks-port: 7891                        # 2. socks-port
 # port: 7892                              # 3. port
 # allow-lan: true                         # 4. allow-lan
 # unified-delay: true                     # 5. unified-delay
+# tun:
+#   stack: mixed                          # 6. tun.stack (已被应用接管)
 # dns:
-#   ipv6: false                           # 6. dns.ipv6
+#   ipv6: false                           # 7. dns.ipv6
 #   fake-ip-range: 198.18.0.1/16
-#   use-system-hosts: false               # 7. dns.use-system-hosts
-#   nameserver:                           # 8. dns.nameserver
+#   use-system-hosts: false               # 8. dns.use-system-hosts
+#   nameserver:                           # 9. dns.nameserver
 #     - https://120.53.53.53/dns-query
 #     - https://223.5.5.5/dns-query
-#   proxy-server-nameserver:              # 9. dns.proxy-server-nameserver
+#   proxy-server-nameserver:              # 10. dns.proxy-server-nameserver
 #     - https://120.53.53.53/dns-query
 #     - https://223.5.5.5/dns-query
-#   direct-nameserver: []                 # 10. dns.direct-nameserver
-#   fake-ip-filter:                       # 11. dns.fake-ip-filter
+#   direct-nameserver: []                 # 11. dns.direct-nameserver
+#   fake-ip-filter:                       # 12. dns.fake-ip-filter
 #     - +.lan
 #     - +.local
 #     - time.*.com
