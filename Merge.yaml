@@ -1339,6 +1339,10 @@ rule-providers:
     format: text
     type: http
 rules:
+  # 补充国内 Speedtest 测速及常用国内测试域名直连
+  - DOMAIN-SUFFIX,speedtest.cn,DIRECT
+  - DOMAIN-SUFFIX,ip138.com,DIRECT
+  - DOMAIN-SUFFIX,ip.sb,DIRECT
   # --------------------------------------------------
   # 1. 最高优先级：测速与 DNS 泄漏检测规则
   # --------------------------------------------------
