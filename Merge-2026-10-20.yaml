@@ -1988,7 +1988,7 @@ rules:
   - DOMAIN-SUFFIX,legra.ph,电报消息
   - DOMAIN-SUFFIX,telesco.pe,电报消息
   - DOMAIN-SUFFIX,cdn-telegram.org,电报消息
-  - DOMAIN-SUFFIX,speedtest.net,电报消息
+#  - DOMAIN-SUFFIX,speedtest.net,电报消息
   - DOMAIN-SUFFIX,zhousijiasu.xyz,电报消息
   
   - DOMAIN-SUFFIX,gofile.io,⚖️ 轮询
