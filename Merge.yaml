@@ -2055,3 +2055,16 @@ rules:
   # 7. 最终兜底
   # --------------------------------------------------
   - "MATCH,漏网之鱼"
+#  - DOMAIN-SUFFIX,jdbstatic.com,Javporn
+#  - DOMAIN-SUFFIX,javdb.com,Javporn
+#  - DOMAIN-SUFFIX,javbus.com,Javporn
+#  - DOMAIN-SUFFIX,javcdn.cc,Javporn
+#  - DOMAIN-SUFFIX,javbus22.com,Javporn
+#  - DOMAIN-SUFFIX,jav.app,Javporn
+#  - DOMAIN-SUFFIX,javdb.com,Javporn
+#  - DOMAIN-SUFFIX,jdbimgs.com,Javporn
+#  - DOMAIN-SUFFIX,jdbstatic.com,Javporn
+#  - DOMAIN-SUFFIX,javcc.cc,Javporn
+#  - DOMAIN-SUFFIX,javcc.com,Javporn
+#  - DOMAIN-REGEX,javbus\d+\.com$,Javporn
+#  - DOMAIN-REGEX,javdb\d+\.com$,Javporn
