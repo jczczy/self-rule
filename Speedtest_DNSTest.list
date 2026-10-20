@@ -21,7 +21,7 @@ DOMAIN-SUFFIX,speed.dler.io,no-resolve
 DOMAIN-SUFFIX,speedtest.co,no-resolve
 DOMAIN-SUFFIX,speedtest.net,no-resolve
 DOMAIN-SUFFIX,speedtestcustom.com,no-resolve
-DOMAIN-KEYWORD,speedtest,no-resolve
+#DOMAIN-KEYWORD,speedtest,no-resolve
 DOMAIN-KEYWORD,ookla,no-resolve
 
 # --------------------------------------------------
