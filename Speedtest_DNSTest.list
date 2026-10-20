@@ -1,0 +1,51 @@
+# NAME: Speedtest & DNS Leak Test (Optimized & Cleaned)
+# REPO: Self-Hosted / GitHub
+# UPDATED: 2026-10-20
+
+# --------------------------------------------------
+# 1. 主流 DNS 泄漏与隐私检测网站 (DNS Leak Test Sites)
+# --------------------------------------------------
+DOMAIN-SUFFIX,ipleak.net,no-resolve
+DOMAIN-SUFFIX,browserleaks.com,no-resolve
+DOMAIN-SUFFIX,dnsleaktest.com,no-resolve
+DOMAIN-SUFFIX,browserscan.net,no-resolve
+DOMAIN-SUFFIX,ippure.com,no-resolve
+
+# --------------------------------------------------
+# 2. 综合测速与知名测速网站 (Speedtest & Speed Check)
+# --------------------------------------------------
+DOMAIN-SUFFIX,fast.com,no-resolve
+DOMAIN-SUFFIX,ooklaserver.net,no-resolve
+DOMAIN-SUFFIX,speed.cloudflare.com,no-resolve
+DOMAIN-SUFFIX,speed.dler.io,no-resolve
+DOMAIN-SUFFIX,speedtest.co,no-resolve
+DOMAIN-SUFFIX,speedtest.net,no-resolve
+DOMAIN-SUFFIX,speedtestcustom.com,no-resolve
+DOMAIN-KEYWORD,speedtest,no-resolve
+DOMAIN-KEYWORD,ookla,no-resolve
+
+# --------------------------------------------------
+# 3. 客户端进程与匹配规则
+# --------------------------------------------------
+PROCESS-NAME,org.zwanoo.android.speedtest
+PROCESS-NAME,Speedtest.exe
+USER-AGENT,SpeedTest*
+
+# --------------------------------------------------
+# 4. 常见公共测速/多地节点与连通性测试域名
+# --------------------------------------------------
+DOMAIN-SUFFIX,fdcservers.net
+DOMAIN-SUFFIX,iperf.fr
+DOMAIN-SUFFIX,iperf.net.nz
+DOMAIN-SUFFIX,ipapi.de
+DOMAIN,lg-hkg.fdcservers.net
+DOMAIN,lg-tok.fdcservers.net
+DOMAIN,lg-sin.fdcservers.net
+DOMAIN,lg.ams-c.fdcservers.net
+DOMAIN,lg.chi-c.fdcservers.net
+DOMAIN,lg.la-c.fdcservers.net
+DOMAIN,lg.lon-c.fdcservers.net
+DOMAIN,lg.mia-c.fdcservers.net
+DOMAIN,bayonne.iperf.fr
+DOMAIN,speed.inetops.com
+DOMAIN,speed.phyber.com
