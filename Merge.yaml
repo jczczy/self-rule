@@ -1307,7 +1307,7 @@ rule-providers:
   ChinaCompanyIp:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
     path: ./ruleset/ChinaCompanyIp.list
-    behavior: ipcidr
+    behavior: classical
     interval: 86400
     format: text
     type: http
