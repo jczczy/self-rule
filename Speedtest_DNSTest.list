@@ -5,11 +5,11 @@
 # --------------------------------------------------
 # 1. 主流 DNS 泄漏与隐私检测网站 (DNS Leak Test Sites)
 # --------------------------------------------------
-DOMAIN-SUFFIX,ipleak.net,no-resolve
-DOMAIN-SUFFIX,browserleaks.com,no-resolve
-DOMAIN-SUFFIX,dnsleaktest.com,no-resolve
-DOMAIN-SUFFIX,browserscan.net,no-resolve
-DOMAIN-SUFFIX,ippure.com,no-resolve
+# DOMAIN-SUFFIX,ipleak.net,no-resolve
+# DOMAIN-SUFFIX,browserleaks.com,no-resolve
+# DOMAIN-SUFFIX,dnsleaktest.com,no-resolve
+# DOMAIN-SUFFIX,browserscan.net,no-resolve
+# DOMAIN-SUFFIX,ippure.com,no-resolve
 
 # --------------------------------------------------
 # 2. 综合测速与知名测速网站 (Speedtest & Speed Check)
