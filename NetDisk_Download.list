@@ -1,0 +1,24 @@
+# NAME: NetDisk_Download
+# DESC: 网盘下载专用规则集 (MediaFire + Gofile), Clash classical 格式
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# DOMAIN-SUFFIX: 4
+# IP-ASN: 0
+# IP-CIDR: 0
+# TOTAL: 4
+# UPDATED: 2026-10-24
+# 说明: 子域名 (如 download*.mediafire.com / store*.gofile.io) 已被 DOMAIN-SUFFIX 覆盖, 无需逐个添加
+# 说明: 未收录 IP 规则, 因 IP 会随服务器更换而过期, 且共享托管网段可能误伤无关网站
+
+# ==================================================
+# MediaFire
+# ==================================================
+DOMAIN-SUFFIX,mediafire.com
+DOMAIN-SUFFIX,mediafire.dev
+# mfi.re 疑似 MediaFire 短链域名 (来源仅为 ArchiveTeam 的匹配正则, 未经本人验证, 不需要可删除)
+DOMAIN-SUFFIX,mfi.re
+
+# ==================================================
+# Gofile
+# ==================================================
+DOMAIN-SUFFIX,gofile.io
