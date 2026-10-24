@@ -1297,7 +1297,7 @@ rule-providers:
     interval: 86400
     format: text
     type: http
-  China:
+  ChinaDomain:
     url: https://raw.githubusercontent.com/jczczy/self-rule/heads/main/ChinaDomain.list
     #https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
     path: ./ruleset/ChinaDomain.list
