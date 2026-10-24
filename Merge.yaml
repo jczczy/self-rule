@@ -2069,7 +2069,7 @@ rules:
   - "RULE-SET,ChinaDomain,全球直连"
   - "RULE-SET,ChinaCompanyIp,全球直连,no-resolve"
   - "RULE-SET,Download,全球直连"
-  - "GEOIP,CN,全球直连,no-resolve"
+  - "GEOIP,CN,全球直连"
 
   # --------------------------------------------------
   # 6. 各国家/地区策略组后缀匹配（已推后至 GEOIP,CN 之后防止误伤）
