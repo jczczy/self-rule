@@ -547,6 +547,37 @@ proxy-groups:
       - 节点选择
       - 自动选择
       - DIRECT
+  - name: 网盘下载
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Download.png
+    type: select
+    proxies:
+      - 香港(负载轮询)
+      - 香港(延迟优选)
+      - 香港(故障转移)
+      - 香港节点
+      - 日本(负载轮询)
+      - 日本(延迟优选)
+      - 日本(故障转移)
+      - 日本节点
+      - 狮城(负载轮询)
+      - 狮城(延迟优选)
+      - 狮城(故障转移)
+      - 狮城节点
+      - 台湾(负载轮询)
+      - 台湾(延迟优选)
+      - 台湾(故障转移)
+      - 台湾节点
+      - 韩国(负载轮询)
+      - 韩国(延迟优选)
+      - 韩国(故障转移)
+      - 韩国节点
+      - 美国(负载轮询)
+      - 美国(延迟优选)
+      - 美国(故障转移)
+      - 美国节点
+      - ⚖️ 轮询
+      - 节点选择
+      - DIRECT
   - name: Speedtest
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
     type: select
@@ -600,11 +631,17 @@ proxy-groups:
       - 手动切换
       - 自动选择
       - 香港(负载轮询)
+      - 香港(故障转移)
       - 日本(负载轮询)
+      - 日本(故障转移)
       - 狮城(负载轮询)
+      - 狮城(故障转移)
       - 台湾(负载轮询)
+      - 台湾(故障转移)
       - 韩国(负载轮询)
+      - 韩国(故障转移)
       - 美国(负载轮询)
+      - 美国(故障转移)
       - 香港节点
       - 台湾节点
       - 狮城节点
@@ -1338,6 +1375,13 @@ rule-providers:
     interval: 86400
     format: text
     type: http
+  NetDisk_Download:
+    url: https://raw.githubusercontent.com/jczczy/self-rule/heads/main/NetDisk_Download.list
+    path: ./ruleset/NetDisk_Download.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
 rules:
   # 补充国内 Speedtest 测速及常用国内测试域名直连
   - DOMAIN-SUFFIX,speedtest.cn,DIRECT
@@ -2015,7 +2059,7 @@ rules:
   - "RULE-SET,Bahamut,巴哈姆特"
   - "RULE-SET,BilibiliHMT,哔哩哔哩"
   - "RULE-SET,Bilibili,哔哩哔哩"
-
+  - "RULE-SET,NetDisk_Download,网盘下载"
   # --------------------------------------------------
   # 5. 其他规则集兜底
   # --------------------------------------------------
