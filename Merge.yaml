@@ -1392,8 +1392,9 @@ rule-providers:
 rules:
 # 优先匹配局域网和私有IP，强制直连
   - GEOIP,LAN,DIRECT
-  
-  # ... 后面接着你的其他规则 ...
+  - IP-CIDR,113.29.230.78/32,DIRECT  # 把这个具体的 IP 锁死在最顶部直连
+  - IP-CIDR,113.29.0.0/16,DIRECT     # 顺便把整个联通子网也锁死在直连
+
   # 补充国内 Speedtest 测速及常用国内测试域名直连
   - DOMAIN-SUFFIX,mhlnf.cn,狮城(故障转移)
   - DOMAIN-SUFFIX,speedtest.cn,DIRECT
