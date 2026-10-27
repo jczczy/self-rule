@@ -1390,6 +1390,10 @@ rule-providers:
     path: ./rules/ChinaIPs.yaml
     interval: 86400
 rules:
+# 优先匹配局域网和私有IP，强制直连
+  - GEOIP,LAN,DIRECT
+  
+  # ... 后面接着你的其他规则 ...
   # 补充国内 Speedtest 测速及常用国内测试域名直连
   - DOMAIN-SUFFIX,mhlnf.cn,狮城(故障转移)
   - DOMAIN-SUFFIX,speedtest.cn,DIRECT
