@@ -1383,8 +1383,15 @@ rule-providers:
     interval: 86400
     format: text
     type: http
+  ChinaIPs:
+    type: http
+    behavior: ipcidr  # 必须声明为 ipcidr，代表纯 IP 网段列表
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaIPs/ChinaIPs.yaml"
+    path: ./rules/ChinaIPs.yaml
+    interval: 86400
 rules:
   # 补充国内 Speedtest 测速及常用国内测试域名直连
+  - DOMAIN-SUFFIX,mhlnf.cn,狮城(故障转移)
   - DOMAIN-SUFFIX,speedtest.cn,DIRECT
   - DOMAIN-SUFFIX,ip138.com,DIRECT
   - DOMAIN-SUFFIX,ip.sb,DIRECT
@@ -2071,7 +2078,7 @@ rules:
   - "RULE-SET,ChinaCompanyIp,全球直连,no-resolve"
   - "RULE-SET,Download,全球直连"
   - "GEOIP,CN,全球直连"
-
+  - "RULE-SET,ChinaIPs,DIRECT,no-resolve"
   # --------------------------------------------------
   # 6. 各国家/地区策略组后缀匹配（已推后至 GEOIP,CN 之后防止误伤）
   # --------------------------------------------------
