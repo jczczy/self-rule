@@ -1,0 +1,241 @@
+# Shadowrocket-Overseas-Direct: 海外直连版（适用于人在日本/美国/加拿大/澳大利亚/韩国/台湾等非中国大陆地区）
+# 无国家/地区策略组，只保留 App / 站点 / 功能组
+# PROXY = Shadowrocket 首页选中的节点：想走回国时选回国线路；想临时走海外某地时选对应海外节点
+# 海外服务默认直连；国内服务默认直连、可切 PROXY（回国）；兜底走「漏网之鱼」，可一键切 PROXY
+# Updated:2026-10-28
+[General]
+
+# DNS：全部使用加密 DoH（IP 形式免引导解析），不使用国内 DNS 与运营商 DNS
+dns-server = https://1.1.1.1/dns-query,https://8.8.8.8/dns-query
+fallback-dns-server = https://8.8.8.8/dns-query,https://1.1.1.1/dns-query
+dns-fallback-system = false
+# 直连域名也走上面的 DoH，不使用运营商明文 DNS
+dns-direct-system = false
+# 直连域名解析失败时不再交给代理节点解析（否则域名会被发到回国节点的国内 DNS，造成泄露）
+dns-direct-fallback-proxy = false
+private-ip-answer = true
+# 拦截硬编码 DNS（明文 53 端口）
+hijack-dns = :53
+bypass-system = true
+skip-proxy = 127.0.0.1,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,100.64.0.0/10,localhost,*.local,captive.apple.com
+tun-excluded-routes = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,198.18.0.0/15,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32,239.255.255.250/32
+ipv6 = true
+prefer-ipv6 = true
+icmp-auto-reply = true
+always-reject-url-rewrite = false
+udp-policy-not-supported-behaviour = REJECT
+force-http-engine-hosts = boxjs.com,boxjs.net,*.boxjs.com,*.boxjs.net,*.ott.cibntv.net,intl.iqiyi.com,maicai.api.ddxq.mobi,mobileapi-v6.elong.com,weibointl.api.weibo.cn,wmapi.meituan.com
+
+[Proxy]
+
+[Proxy Group]
+# ==================== 功能组：DIRECT / PROXY 二选一（默认直连） ====================
+漏网之鱼 = select,DIRECT,PROXY,policy-select-name=DIRECT
+国内服务 = select,DIRECT,PROXY,policy-select-name=DIRECT
+哔哩哔哩 = select,DIRECT,PROXY,policy-select-name=DIRECT
+Speedtest = select,DIRECT,PROXY,policy-select-name=DIRECT
+YouTube = select,DIRECT,PROXY,policy-select-name=DIRECT
+谷歌服务 = select,YouTube,DIRECT,PROXY,policy-select-name=YouTube
+AI = select,DIRECT,PROXY,policy-select-name=DIRECT
+GitHub = select,DIRECT,PROXY,policy-select-name=DIRECT
+Telegram = select,DIRECT,PROXY,policy-select-name=DIRECT
+Twitter = select,DIRECT,PROXY,policy-select-name=DIRECT
+Facebook = select,DIRECT,PROXY,policy-select-name=DIRECT
+Instagram = select,DIRECT,PROXY,policy-select-name=DIRECT
+TikTok = select,DIRECT,PROXY,policy-select-name=DIRECT
+Spotify = select,DIRECT,PROXY,policy-select-name=DIRECT
+PayPal = select,DIRECT,PROXY,policy-select-name=DIRECT
+Amazon = select,DIRECT,PROXY,policy-select-name=DIRECT
+苹果服务 = select,DIRECT,PROXY,policy-select-name=DIRECT
+微软服务 = select,DIRECT,PROXY,policy-select-name=DIRECT
+游戏平台 = select,DIRECT,PROXY,policy-select-name=DIRECT
+FANZA = select,DIRECT,PROXY,policy-select-name=DIRECT
+teracloud = select,DIRECT,PROXY,policy-select-name=DIRECT
+Javporn = select,DIRECT,PROXY,policy-select-name=DIRECT
+# 币安 / 加密货币（相关规则集保留）
+Binance = select,DIRECT,PROXY,policy-select-name=DIRECT
+
+# ==================== 需要指定出口地区的功能组（只列出匹配的节点，无 DIRECT 选项） ====================
+# 关键词请对照订阅里的实际节点名调整；若匹配不到节点，该组会是空的
+Talkatone = select,policy-regex-filter=\bUS\b|\bus\b|USA|usa|America|United States|美国|美國|🇺🇸|洛杉矶|西雅图|Seattle|芝加哥|Chicago|纽约|New York|凤凰城|Phoenix|圣何塞|San Jose|迈阿密|Miami
+Netflix = select,policy-regex-filter=原生|流媒体|Netflix|netflix|NETFLIX|奈飞|奈菲|流媒體|奈飛|網飛|网飞
+Disney+ = select,policy-regex-filter=原生|流媒体|Netflix|netflix|NETFLIX|奈飞|奈菲|流媒體|奈飛|網飛|网飞
+HBO = select,policy-regex-filter=原生|流媒体|Netflix|netflix|NETFLIX|奈飞|奈菲|流媒體|奈飛|網飛|网飞
+
+[Rule]
+# ---------- 1. 本地 / 测速 ----------
+GEOIP,LAN,DIRECT
+IP-CIDR,113.29.230.78/32,DIRECT
+IP-CIDR,113.29.0.0/16,DIRECT
+RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Lan/Lan.list,DIRECT
+DOMAIN-SUFFIX,sub.store,DIRECT
+RULE-SET,https://raw.githubusercontent.com/jczczy/self-rule/main/Speedtest_DNSTest.list,Speedtest
+
+# ---------- 2. QUIC 拦截（直连后 UDP 会放行，必须显式拦截才能让 YouTube 回落 TCP，保证 MITM 生效） ----------
+AND,((PROTOCOL,UDP),(DEST-PORT,443),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DEST-PORT,443),(DOMAIN-SUFFIX,youtube.com)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DEST-PORT,443),(DOMAIN,youtubei.googleapis.com)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DEST-PORT,443),(DOMAIN,spclient.wg.spotify.com)),REJECT-NO-DROP
+
+# ---------- 3. Apple Intelligence / Private Relay 相关域名，始终直连 ----------
+DOMAIN-SUFFIX,apple-relay.apple.com,DIRECT
+DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net,DIRECT
+DOMAIN-SUFFIX,apple-relay.akamaized.net,DIRECT
+DOMAIN-SUFFIX,apple-relay.cloudflare.com,DIRECT
+DOMAIN-SUFFIX,apple-relay.fastly-edge.com,DIRECT
+DOMAIN,cp4.cloudflare.com,DIRECT
+
+# ---------- 4. 按 App / 域名优先匹配 ----------
+DOMAIN-SUFFIX,githubusercontent.com,GitHub,pre-matching,extended-matching
+DOMAIN-SUFFIX,dmm.co.jp,FANZA,pre-matching,extended-matching
+
+USER-AGENT,YouTube*,YouTube
+USER-AGENT,youtube*,YouTube
+USER-AGENT,GoogleGemini*,AI
+USER-AGENT,Gemini*,AI
+USER-AGENT,telegram*,Telegram
+USER-AGENT,Instagram*,Instagram
+USER-AGENT,X-App*,Twitter
+USER-AGENT,Twitter*,Twitter
+USER-AGENT,com.apple.trustd*,苹果服务
+USER-AGENT,wechat*,国内服务
+USER-AGENT,micromessenger*,国内服务
+USER-AGENT,QQ*,国内服务
+USER-AGENT,TIM*,国内服务
+USER-AGENT,netease*,国内服务
+
+DOMAIN-KEYWORD,appleusercontent,苹果服务,pre-matching,extended-matching
+DOMAIN-KEYWORD,cdn-apple,苹果服务,pre-matching,extended-matching
+DOMAIN-KEYWORD,apple-dns,苹果服务,pre-matching,extended-matching
+DOMAIN-KEYWORD,facetime,苹果服务,pre-matching,extended-matching
+DOMAIN-KEYWORD,icloud,苹果服务,pre-matching,extended-matching
+DOMAIN-SUFFIX,mzstatic.com,苹果服务,extended-matching
+DOMAIN-SUFFIX,ca.iadsdk.apple.com,苹果服务
+IP-CIDR,17.0.0.0/8,苹果服务,no-resolve
+
+DOMAIN-SUFFIX,twimg.com,Twitter,extended-matching
+DOMAIN-SUFFIX,t.co,Twitter
+DOMAIN-SUFFIX,x.com,Twitter
+DOMAIN-KEYWORD,twitter,Twitter
+DOMAIN-KEYWORD,facebook,Facebook
+DOMAIN-KEYWORD,instagram,Instagram
+DOMAIN-KEYWORD,binance,Binance
+
+DOMAIN-SUFFIX,cdn2.inner-active.mobi,Talkatone
+DOMAIN-SUFFIX,tktn.be,Talkatone
+
+DOMAIN-KEYWORD,youtube,YouTube
+DOMAIN-KEYWORD,googlevideo,YouTube
+DOMAIN-SUFFIX,googlevideo.com,YouTube
+
+DOMAIN-SUFFIX,gmail.com,谷歌服务
+DOMAIN-KEYWORD,gmail,谷歌服务
+DOMAIN-KEYWORD,ampproject,谷歌服务
+DOMAIN-KEYWORD,google,谷歌服务
+DOMAIN-SUFFIX,gstatic.com,谷歌服务
+
+DOMAIN-SUFFIX,live.com,微软服务
+DOMAIN-SUFFIX,microsoftonline.com,微软服务
+
+# ---------- 5. 去广告 ----------
+DOMAIN-KEYWORD,fi11aa108,REJECT
+DOMAIN-SUFFIX,fi11aa108.com,REJECT
+DOMAIN-KEYWORD,pssd8,REJECT
+DOMAIN-SUFFIX,pssd8.com,REJECT
+DOMAIN-SUFFIX,pompouslemonadex.com,REJECT
+DOMAIN-SUFFIX,plaguealacritytx.com,REJECT
+DOMAIN-SUFFIX,pompouslemonadetwitter.com,REJECT
+DOMAIN-SUFFIX,plaguealacritytwitter.com,REJECT
+DOMAIN-SUFFIX,ads.x.com,REJECT
+DOMAIN-SUFFIX,ads-x.com,REJECT
+DOMAIN-SUFFIX,ads.twitter.com,REJECT
+DOMAIN-SUFFIX,ads-twitter.com,REJECT
+RULE-SET,https://limbopro.com/Adblock4limbo.list,REJECT
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Advertising/Advertising.list,REJECT
+DOMAIN-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Advertising/Advertising_Domain.list,REJECT
+RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyPrivacy.list,REJECT
+
+# ---------- 6. AI ----------
+RULE-SET,https://raw.githubusercontent.com/jczczy/self-rule/main/Gemini.list,AI
+RULE-SET,https://raw.githubusercontent.com/jczczy/self-rule/main/AI.list,AI
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/OpenAI/OpenAI.list,AI
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Claude/Claude.list,AI
+DOMAIN-SUFFIX,openai.com,AI
+DOMAIN-KEYWORD,openai,AI
+DOMAIN-SUFFIX,x.ai,AI
+
+# ---------- 7. 独立服务规则集 ----------
+RULE-SET,https://raw.githubusercontent.com/jczczy/self-rule/main/GitHub.list,GitHub
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/GitHub/GitHub.list,GitHub
+RULE-SET,https://raw.githubusercontent.com/jczczy/self-rule/main/FANZA.list,FANZA
+RULE-SET,https://raw.githubusercontent.com/jczczy/self-rule/main/Javporn.list,Javporn
+RULE-SET,https://raw.githubusercontent.com/jczczy/self-rule/main/teracloud.list,teracloud
+RULE-SET,https://raw.githubusercontent.com/jczczy/self-rule/main/talkatone.list,Talkatone
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Cryptocurrency/Cryptocurrency.list,Binance
+IP-CIDR,149.154.160.0/20,Telegram,no-resolve
+IP-CIDR,91.108.56.145/16,Telegram,no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Telegram/Telegram.list,Telegram
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/YouTube/YouTube.list,YouTube
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Netflix/Netflix.list,Netflix
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Disney/Disney.list,Disney+
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/HBO/HBO.list,HBO
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Spotify/Spotify.list,Spotify
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/PayPal/PayPal.list,PayPal
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Twitter/Twitter.list,Twitter
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Facebook/Facebook.list,Facebook
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Amazon/Amazon.list,Amazon
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/TikTok/TikTok.list,TikTok
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Sony/Sony.list,游戏平台
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Nintendo/Nintendo.list,游戏平台
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Epic/Epic.list,游戏平台
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/SteamCN/SteamCN.list,游戏平台
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Steam/Steam.list,游戏平台
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Game/Game.list,游戏平台
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Microsoft/Microsoft.list,微软服务
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Google/Google.list,谷歌服务
+RULE-SET,https://raw.githubusercontent.com/jczczy/self-rule/main/Apple.list,苹果服务
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/BiliBili/BiliBili.list,哔哩哔哩
+
+# ---------- 8. 国内服务（默认直连；在「国内服务」分组切 PROXY 即走首页选中的回国节点） ----------
+DOMAIN-SUFFIX,alicdn.com,国内服务
+DOMAIN-SUFFIX,taobao.com,国内服务
+DOMAIN-SUFFIX,baidu.com,国内服务
+DOMAIN-SUFFIX,baidubcr.com,国内服务
+DOMAIN-SUFFIX,t3go.cn,国内服务
+DOMAIN-SUFFIX,ccb.com,国内服务
+DOMAIN-SUFFIX,psbc.com,国内服务
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/NetEaseMusic/NetEaseMusic.list,国内服务
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Baidu/Baidu.list,国内服务
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/DouBan/DouBan.list,国内服务
+RULE-SET,https://raw.githubusercontent.com/jczczy/self-rule/main/WeChat.list,国内服务
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/DouYin/DouYin.list,国内服务
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Sina/Sina.list,国内服务
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Zhihu/Zhihu.list,国内服务
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/KuaiShou/KuaiShou.list,国内服务
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Weibo/Weibo.list,国内服务
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/XiaoHongShu/XiaoHongShu.list,国内服务
+RULE-SET,https://raw.githubusercontent.com/jczczy/self-rule/main/MeiTuan.list,国内服务
+RULE-SET,https://raw.githubusercontent.com/jczczy/self-rule/main/ChinaDomain.list,国内服务
+DOMAIN-SUFFIX,cn,国内服务
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/ChinaIPs/ChinaIPs.list,国内服务
+GEOIP,CN,国内服务
+
+# ---------- 9. 兜底 ----------
+FINAL,漏网之鱼
+
+[Host]
+localhost = 127.0.0.1
+
+[URL Rewrite]
+^https?:\/\/(www.)?(g|google)\.cn 'https://www.google.com' 302
+^https?:\/\/(ditu|maps).google\.cn 'https://maps.google.com' 302
+(^https?:\/\/app\.biliintl\.com\/intl\/.+)(&sim_code=\d+)(.+) $1$3 302
+^http:\/\/(www.)?aicoin\.cn\/$ 'https://www.aicoin.cn/?long_lives_aicoin=%22live%22' 302
+
+[MITM]
+ca-passphrase = Shadowrocket-xs
+h2 = true
+enable = true
+ca-p12 = 
+hostname = www.google.cn,app.biliintl.com
