@@ -1,5 +1,5 @@
 # ==========================================
-# Rule Set: Bilibilia (第三方B站封面提取工具)
+# Rule Set: Custom-Proxy (Bilibilia第三方B站封面提取工具)
 # Description: 页面 hosted 在 Cloudflare，直连较慢，需分流至代理节点
 # Note: B站官方静态资源(hdslb.com/bilivideo.com)仍由全局国内规则保持直连
 # Status: Part 1 / 常用自定义追加规则
