@@ -1,5 +1,3 @@
-
-
 # 1. 流量嗅探核心配置（核心保留）
 sniffer:
   enable: true
@@ -1393,7 +1391,7 @@ rule-providers:
     interval: 86400
   Custom-Proxy:
     type: http
-    behavior: domain
+    behavior: classical
     url: "https://raw.githubusercontent.com/jczczy/self-rule/heads/main/Custom-Proxy.list"
     path: ./rules/Custom-Proxy.list
     interval: 86400
