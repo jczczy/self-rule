@@ -1390,11 +1390,12 @@ rule-providers:
     path: ./rules/ChinaIPs.yaml
     interval: 86400
   Custom-Proxy:
-    type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/jczczy/self-rule/heads/main/Custom-Proxy.list"
+    url: https://raw.githubusercontent.com/jczczy/self-rule/heads/main/Custom-Proxy.list
     path: ./rules/Custom-Proxy.list
+    behavior: classical
     interval: 86400
+    format: text
+    type: http
 rules:
 # 优先匹配局域网和私有IP，强制直连
   - GEOIP,LAN,DIRECT
