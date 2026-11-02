@@ -1,3 +1,5 @@
+
+
 # 1. 流量嗅探核心配置（核心保留）
 sniffer:
   enable: true
@@ -1389,6 +1391,12 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaIPs/ChinaIPs.yaml"
     path: ./rules/ChinaIPs.yaml
     interval: 86400
+  Custom-Proxy:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/jczczy/self-rule/heads/main/Custom-Proxy.list"
+    path: ./rules/Custom-Proxy.list
+    interval: 86400
 rules:
 # 优先匹配局域网和私有IP，强制直连
   - GEOIP,LAN,DIRECT
@@ -2042,6 +2050,7 @@ rules:
   - IP-CIDR,173.194.218.188/32,油管视频,no-resolve
   - IP-CIDR,209.85.233.188/32,油管视频,no-resolve
 
+  - "RULE-SET,Custom-Proxy,节点选择"
   - "RULE-SET,LocalAreaNetwork,全球直连"
   - "RULE-SET,UnBan,全球直连"
   - "RULE-SET,BanAD,广告拦截"
@@ -2076,10 +2085,10 @@ rules:
   # --------------------------------------------------
   # 5. 其他规则集兜底
   # --------------------------------------------------
-  - "RULE-SET,ChinaMedia,国内媒体"
   - "RULE-SET,ProxyMedia,国外媒体"
   - "RULE-SET,ProxyGFWlist,节点选择"
   - "RULE-SET,ChinaDomain,全球直连"
+  - "RULE-SET,ChinaMedia,国内媒体"
   - "RULE-SET,ChinaCompanyIp,全球直连,no-resolve"
   - "RULE-SET,Download,全球直连"
   - "GEOIP,CN,全球直连"
