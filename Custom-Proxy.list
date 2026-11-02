@@ -4,7 +4,7 @@
 # Note: B站官方静态资源(hdslb.com/bilivideo.com)仍由全局国内规则保持直连
 # Status: Part 1 / 常用自定义追加规则
 # ==========================================
-# NAME: BilibiliaExtra
+# NAME: Custom-Proxy
 # AUTHOR: JC
 # REPO: https://github.com/你的用户名/你的仓库名
 # UPDATED: 2026-11-02 23:08:00
