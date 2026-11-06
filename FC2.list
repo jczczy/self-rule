@@ -1,0 +1,26 @@
+================================================================
+Title: FC2 Proxy Rule-Set
+Description: 涵盖 FC2 旗下主站、博客、视频点播、内容市场、自建 ASN 网段
+================================================================
+--- 1. FC2 核心主域名与关键后缀 ---
+DOMAIN-SUFFIX,fc2.com
+DOMAIN-SUFFIX,fc2.net
+DOMAIN-SUFFIX,fc2blog.net
+DOMAIN-SUFFIX,fc2blog.us
+DOMAIN-SUFFIX,fc2web.com
+DOMAIN-SUFFIX,fc2china.com
+DOMAIN-SUFFIX,fc2cn.com
+--- 2. 旗下二级服务与关联产品域名 ---
+DOMAIN-SUFFIX,himado.in
+DOMAIN-SUFFIX,say-move.org
+DOMAIN-SUFFIX,saymove.info
+--- 3. 兜底域名关键字匹配 (防止漏匹配新开二级站) ---
+DOMAIN-KEYWORD,fc2
+--- 4. FC2 自治域官方宣告 IP 段 (AS63210: FC2 Inc.) ---
+说明：FC2 源站服务器与部分专属流媒体切片节点位于其自有 ASN 中
+IP-CIDR,104.244.96.0/22,no-resolve
+IP-CIDR,199.48.208.0/22,no-resolve
+IP-CIDR,199.116.176.0/24,no-resolve
+IP-CIDR,199.116.178.0/23,no-resolve
+IP-CIDR,208.71.104.0/24,no-resolve
+IP6-CIDR,2605:2c40::/40,no-resolve
