@@ -650,6 +650,33 @@ proxy-groups:
       - 美国节点
       - 韩国节点
       - DIRECT
+  - name: FC2
+    icon: https://images.seeklogo.com/logo-png/42/1/fc2-logo-png_seeklogo-429409.png
+#https://static.fc2id.com/share/image/fc2_logo.png
+    type: select
+    proxies:
+      - 节点选择
+      - 手动选择
+      - 自动选择
+      - ⚖️ 轮询
+      - ⚖️ 散列
+      - 狮城节点
+      - 香港节点
+      - 台湾节点
+      - 日本节点
+      - 美国节点
+      - 美国(故障转移)
+      - 韩国节点
+      - 专线节点
+      - 手动切换
+      - 香港(负载轮询)
+      - 日本(负载轮询)
+      - 狮城(负载轮询)
+      - 台湾(负载轮询)
+      - 韩国(负载轮询)
+      - 美国(负载轮询)
+      - DIRECT
+
   - name: 香港节点
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
     include-all: true
@@ -1396,6 +1423,15 @@ rule-providers:
     interval: 86400
     format: text
     type: http
+  FC2:
+    url: https://raw.githubusercontent.com/jczczy/self-rule/heads/main/FC2.list
+    path: ./rules/FC2.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+
+
 rules:
 # 优先匹配局域网和私有IP，强制直连
   - GEOIP,LAN,DIRECT
@@ -1430,7 +1466,8 @@ rules:
   - DOMAIN-SUFFIX,infini-cloud.net,teracloud
   - DOMAIN,kurio.infini-cloud.net,teracloud
   - DOMAIN-SUFFIX,dmm.co.jp,FANZA
-  
+
+
   # Chrome浏览器更新域名
   - DOMAIN-SUFFIX,dl.google.com,电报消息
   - DOMAIN-SUFFIX,edgedl.me.gvt1.com,电报消息
@@ -2058,6 +2095,7 @@ rules:
   - "RULE-SET,teracloud,teracloud"
   - "RULE-SET,Cryptocurrency,Cryptocurrency"
   - "RULE-SET,Javporn,Javporn"
+  - "RULE-SET,FC2,FC2"
   - "RULE-SET,GoogleFCM,谷歌FCM"
   - "RULE-SET,GoogleCN,全球直连"
   - "RULE-SET,SteamCN,全球直连"
