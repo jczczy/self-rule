@@ -1,24 +1,44 @@
 # NAME: NetDisk_Download
-# DESC: 网盘下载专用规则集 (MediaFire + Gofile), Clash classical 格式
-# DOMAIN: 0
+# DESC: 网盘下载专用规则集 (MediaFire + Gofile + TeraBox), Clash classical 格式
+# DOMAIN: 2
 # DOMAIN-KEYWORD: 0
-# DOMAIN-SUFFIX: 4
+# DOMAIN-SUFFIX: 10
 # IP-ASN: 0
 # IP-CIDR: 0
-# TOTAL: 4
-# UPDATED: 2026-10-24
-# 说明: 子域名 (如 download*.mediafire.com / store*.gofile.io) 已被 DOMAIN-SUFFIX 覆盖, 无需逐个添加
-# 说明: 未收录 IP 规则, 因 IP 会随服务器更换而过期, 且共享托管网段可能误伤无关网站
-
+# TOTAL: 12
+# UPDATED: 2026-11-20
+# 说明: 本规则集仅收录网盘网页、客户端及文件下载链路中具有明确用途的域名
+# 说明: 子域名已由 DOMAIN-SUFFIX 覆盖，无需逐个添加
+# 说明: 未收录 IP 规则，因为网盘 CDN / 下载服务器 IP 会动态变化，固定 IP 容易失效
+# 说明: 不建议将第三方网盘镜像/解析站域名加入本规则集，避免误匹配无关服务
+#
 # ==================================================
 # MediaFire
 # ==================================================
 DOMAIN-SUFFIX,mediafire.com
 DOMAIN-SUFFIX,mediafire.dev
-# mfi.re 疑似 MediaFire 短链域名 (来源仅为 ArchiveTeam 的匹配正则, 未经本人验证, 不需要可删除)
+# mfi.re 疑似 MediaFire 短链域名
+# 来源为 ArchiveTeam 匹配规则，未作官方用途确认；如不需要短链访问可删除
 DOMAIN-SUFFIX,mfi.re
 
 # ==================================================
 # Gofile
 # ==================================================
 DOMAIN-SUFFIX,gofile.io
+
+# ==================================================
+# TeraBox
+# ==================================================
+# TeraBox 主站及网页/客户端服务
+DOMAIN-SUFFIX,terabox.com
+DOMAIN-SUFFIX,teraboxapp.com
+DOMAIN-SUFFIX,terabox.app
+
+# TeraBox / 1024Tera 相关服务及下载链路
+DOMAIN-SUFFIX,1024terabox.com
+DOMAIN-SUFFIX,1024tera.com
+DOMAIN-SUFFIX,teraboxcdn.com
+
+# TeraBox 实际下载/媒体请求使用的明确主机
+DOMAIN,dm.terabox.app
+DOMAIN,dm.1024tera.com
